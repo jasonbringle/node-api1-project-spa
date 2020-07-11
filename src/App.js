@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function App() {
   const [ info, setInfo] = useState({
+    id:'',
     name:'',
     bio:""
   })
@@ -17,7 +18,7 @@ function App() {
   const submitHandler = e => {
     e.preventDefault();
     axios
-    .post("http://localhost:8000/api/users")
+    .post("http://localhost:8000/api/users", info)
     .then(res => console.log(res))
     .catch(err => console.log("Error", err.message))
   }
